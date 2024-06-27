@@ -1,6 +1,5 @@
 // WARNING 메시지 끄는 법
 /* eslint-disable */
-// dddd
 
 import logo from './logo.svg';
 import './App.css';
@@ -34,9 +33,9 @@ function App() {
 
       <button
         onClick={() => {
-          let copy2 = [...글제목];
-          copy2.sort();
-          글제목변경(copy2);
+          let copy = [...글제목];
+          copy.sort();
+          글제목변경(copy);
         }}
       >
         가나다순정렬
