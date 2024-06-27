@@ -2,6 +2,16 @@
   text-align: center;
 }
 
+div {
+  box-sizing: 20px;
+}
+
+.list {
+  padding-left: 20px;
+  text-align: left;
+  border-bottom: 1px solid gray;
+}
+
 .black-nav {
   display: flex;
   background: black;
