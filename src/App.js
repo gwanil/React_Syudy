@@ -31,7 +31,15 @@ function App() {
         <h4>ReactBlog</h4>
       </div>
 
-      <button>가나다순정렬</button>
+      <button
+        onClick={() => {
+          let copy2 = [...글제목];
+          copy2.sort();
+          글제목변경(copy2);
+        }}
+      >
+        가나다순정렬
+      </button>
 
       <button
         onClick={() => {
