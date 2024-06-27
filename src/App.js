@@ -80,8 +80,44 @@ function App() {
         <h4>{글제목[2]}</h4>
         <p>6월 27일 발행</p>
       </div>
+
+      <Modal></Modal>
+      <Test />
     </div>
   );
 }
+
+// html은 단점이 너무 더러워짐 그래서 컴포넌트를 생성함
+// 1. function 만들고 (위의 function말고 밑에 새로 생성)
+// 2. return() 안에 html 담기
+// 3. <함수명></함수명> 쓰기 (원래 쓰고자 한 자리에 쓰기)
+
+// 컴포넌트를 그럼 언제 만들면 좋은가?
+// 1. 반복적인 html 축약할 때
+// 2. 큰 페이지 (페이지 전환할때)
+// 3. 자주변경되는 것들
+
+// 이런 식으로 만들어도 됨 (const를 사용하는 이유는 나중에 변경되었을 때 오류를 알려주기 때문)
+// const Modal = () => {
+//   return <div></div>;
+// };
+
+function Modal() {
+  return (
+    <div className='modal'>
+      <h4>제목</h4>
+      <p>날짜</p>
+      <p>상세내용</p>
+    </div>
+  );
+}
+
+const Test = () => {
+  return (
+    <div>
+      <p>안녕하세요</p>
+    </div>
+  );
+};
 
 export default App;
