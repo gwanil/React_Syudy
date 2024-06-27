@@ -1,3 +1,6 @@
+// WARNING 메시지 끄는 법
+/* eslint-disable */
+
 import logo from './logo.svg';
 import './App.css';
 import { useState } from 'react';
@@ -9,6 +12,11 @@ function App() {
   // stat 언제쓰는가? -> 변동시 자동으로 html에 변경되게 만들고 싶을 때
   let [글제목, b] = useState(['남자코트 추천', '강남 우동맛집', '파이썬 독학']);
   let [logo, setLogo] = useState('ReactBlog');
+  let [따봉, 따봉변경] = useState(0);
+
+  // function 함수() {
+  //   console.log(1);
+  // }
 
   return (
     <div className='App'>
@@ -26,7 +34,19 @@ function App() {
         {/* JSX 문법2. 변수꽂을 땐 {변수명} */}
         {/* <h4>{post}</h4> */}
 
-        <h4>{글제목[0]}</h4>
+        <h4>
+          {글제목[0]}
+          {/* 클릭시 뭔가 실행하고 싶으면 onClick={함수} 이렇게 이벤트 핸들러를 달아서 사용  */}
+          {/* state 변경하려면 변경함수를 꼭 이용해야함 state변경함수는 () 안에 입력한걸로 기존 state를 갈아취워줌 */}
+          <span
+            onClick={() => {
+              따봉변경(따봉 + 1);
+            }}
+          >
+            👍
+          </span>
+          {따봉}
+        </h4>
         <p>6월 27일 발행</p>
       </div>
 
