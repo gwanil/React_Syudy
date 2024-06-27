@@ -10,7 +10,7 @@ function App() {
 
   // a : 남자코트추천이 들어있음, b : state 변경도와주는 함수
   // stat 언제쓰는가? -> 변동시 자동으로 html에 변경되게 만들고 싶을 때
-  let [글제목, b] = useState(['남자코트 추천', '강남 우동맛집', '파이썬 독학']);
+  let [글제목, 글제목변경] = useState(['남자코트 추천', '강남 우동맛집', '파이썬 독학']);
   let [logo, setLogo] = useState('ReactBlog');
   let [따봉, 따봉변경] = useState(0);
 
@@ -30,6 +30,19 @@ function App() {
 
         <h4>ReactBlog</h4>
       </div>
+
+      <button>가나다순정렬</button>
+
+      <button
+        onClick={() => {
+          let copy = [...글제목];
+          copy[0] = '여자코트 추천';
+          글제목변경(copy);
+        }}
+      >
+        글수정
+      </button>
+
       <div className='list'>
         {/* JSX 문법2. 변수꽂을 땐 {변수명} */}
         {/* <h4>{post}</h4> */}
