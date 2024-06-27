@@ -7,7 +7,7 @@ function App() {
 
   // a : 남자코트추천이 들어있음, b : state 변경도와주는 함수
   // stat 언제쓰는가? -> 변동시 자동으로 html에 변경되게 만들고 싶을 때
-  let [글제목, b] = useState('남자 코트 추천');
+  let [글제목, b] = useState(['남자코트 추천', '강남 우동맛집', '파이썬 독학']);
   let [logo, setLogo] = useState('ReactBlog');
 
   return (
@@ -26,7 +26,17 @@ function App() {
         {/* JSX 문법2. 변수꽂을 땐 {변수명} */}
         {/* <h4>{post}</h4> */}
 
-        <h4>{글제목}</h4>
+        <h4>{글제목[0]}</h4>
+        <p>6월 27일 발행</p>
+      </div>
+
+      <div className='list'>
+        <h4>{글제목[1]}</h4>
+        <p>6월 27일 발행</p>
+      </div>
+
+      <div className='list'>
+        <h4>{글제목[2]}</h4>
         <p>6월 27일 발행</p>
       </div>
     </div>
