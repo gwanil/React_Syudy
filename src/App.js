@@ -12,7 +12,7 @@ function App() {
   // stat 언제쓰는가? -> 변동시 자동으로 html에 변경되게 만들고 싶을 때
   let [글제목, 글제목변경] = useState(['남자코트 추천', '강남 우동맛집', '파이썬 독학']);
   let [logo, setLogo] = useState('ReactBlog');
-  let [따봉, 따봉변경] = useState(0);
+  let [따봉, 따봉변경] = useState([0, 0, 0]);
 
   // 동적인 UI 만드는 step
   // 1. html css로 미리 UI 디자인 다 놓기
@@ -24,6 +24,10 @@ function App() {
   // function 함수() {
   //   console.log(1);
   // }
+
+  // [1, 2, 3].map(function (a) {
+  //   console.log(a);
+  // });
 
   return (
     <div className='App'>
@@ -43,8 +47,7 @@ function App() {
           let copy = [...글제목];
           copy.sort();
           글제목변경(copy);
-        }}
-      >
+        }}>
         가나다순정렬
       </button>
 
@@ -53,8 +56,7 @@ function App() {
           let copy = [...글제목];
           copy[0] = '여자코트 추천';
           글제목변경(copy);
-        }}
-      >
+        }}>
         글수정
       </button>
 
@@ -69,8 +71,7 @@ function App() {
           <span
             onClick={() => {
               따봉변경(따봉 + 1);
-            }}
-          >
+            }}>
             👍
           </span>
           {따봉}
@@ -87,8 +88,7 @@ function App() {
         <h4
           onClick={() => {
             setModal(!modal);
-          }}
-        >
+          }}>
           {글제목[2]}
         </h4>
         {modal == true ? <Modal /> : null}
@@ -98,6 +98,26 @@ function App() {
       {/* <Modal></Modal> */}
       {/* <Test /> */}
       {/* {modal == true ? <Modal /> : null} */}
+
+      {글제목.map(function (a, i) {
+        return (
+          <div className='list'>
+            <h4>
+              {글제목[i]}{' '}
+              <span
+                onClick={() => {
+                  let copy = [...따봉];
+                  copy[i] += 1;
+                  따봉변경(copy);
+                }}>
+                👍
+              </span>
+              {따봉[i]}
+            </h4>
+            <p>6월 27일 발행</p>
+          </div>
+        );
+      })}
     </div>
   );
 }
