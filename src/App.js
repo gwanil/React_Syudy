@@ -14,6 +14,13 @@ function App() {
   let [logo, setLogo] = useState('ReactBlog');
   let [따봉, 따봉변경] = useState(0);
 
+  // 동적인 UI 만드는 step
+  // 1. html css로 미리 UI 디자인 다 놓기
+  // 2. UI의 현재 상태를 state로 저장해두고
+  // 3. state에 따라서 UI가 어떻게 보일지 조건문 등으로 작성
+  // state변경함수는 set을 앞에 붙이는게 관습
+  let [modal, setModal] = useState(false);
+
   // function 함수() {
   //   console.log(1);
   // }
@@ -77,12 +84,20 @@ function App() {
       </div>
 
       <div className='list'>
-        <h4>{글제목[2]}</h4>
+        <h4
+          onClick={() => {
+            setModal(!modal);
+          }}
+        >
+          {글제목[2]}
+        </h4>
+        {modal == true ? <Modal /> : null}
         <p>6월 27일 발행</p>
       </div>
 
-      <Modal></Modal>
-      <Test />
+      {/* <Modal></Modal> */}
+      {/* <Test /> */}
+      {/* {modal == true ? <Modal /> : null} */}
     </div>
   );
 }
@@ -112,12 +127,12 @@ function Modal() {
   );
 }
 
-const Test = () => {
-  return (
-    <div>
-      <p>안녕하세요</p>
-    </div>
-  );
-};
+// const Test = () => {
+//   return (
+//     <div>
+//       <p>안녕하세요</p>
+//     </div>
+//   );
+// };
 
 export default App;
